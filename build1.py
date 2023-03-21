@@ -54,9 +54,9 @@ print(video.shape)
 input_shape = [320,40,3]
 noise = 0.05
 final_degree = 2
-layerconfig = [(10,10,5,5,441,2), (7,3,4,4,30,2), (15,2,1,1,1,2)] #
-layers = 2
-batch_size = 30
+layerconfig = [(10,10,5,5,441,2), (7,3,4,4,30,2), (15,2,1,1,1,2)]
+layers = 3
+batch_size = 32
 
 sfa_layers = sksfa.HSFA(n_components=layers,
                         input_shape = input_shape,
@@ -67,5 +67,6 @@ sfa_layers = sksfa.HSFA(n_components=layers,
 
 
 sfa_layers.fit(video)
-extracted_features = sfa_layers.transform(video)
+print(video[0].shape)
+extracted_features = sfa_layers.transform(video[4])
 print(extracted_features)
