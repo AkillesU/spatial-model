@@ -11,7 +11,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 fps = 30
-length = 5
+length = 24
 video_path = "C:/Users/arech/Documents/PSYCHOLOGY/Love Lab/spatial-project/video1.mp4"
 
 #Defining the parameters for a frame
@@ -54,11 +54,11 @@ print(video.shape)
 input_shape = [320,40,3]
 noise = 0.05
 final_degree = 2
-layerconfig = [(10,10,5,5,441,2), (7,3,4,4,30,2), (15,2,1,1,1,2)]
-layers = 3
+layerconfig = [(10,10,5,5,441,2),(7,3,4,4,30,2), (15,2,1,1,1,2)]
+components = 32
 batch_size = 32
 
-sfa_layers = sksfa.HSFA(n_components=layers,
+sfa_layers = sksfa.HSFA(n_components=components,
                         input_shape = input_shape,
                         internal_batch_size=batch_size,
                         noise_std = noise,
@@ -70,3 +70,6 @@ sfa_layers.fit(video)
 print(video[0].shape)
 extracted_features = sfa_layers.transform(video[4])
 print(extracted_features)
+
+
+
