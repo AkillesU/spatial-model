@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 
 fps = 30
 length = 24
-video_path = "C:/Users/arech/Documents/PSYCHOLOGY/Love Lab/spatial-project/video1.mp4"
+video_path = "$HOME/projects/spatial-model/video1.mp4"
 
 #Defining the parameters for a frame
 def crop_center_square(frame):
