@@ -13,8 +13,8 @@ from matplotlib import pyplot as plt
 
 
 #Loading Config file
-with open("config.yaml") as f:
-  config = yaml.safe_load(f)
+#with open("config.yaml") as f:
+#  config = yaml.safe_load(f)
 
 print(config)
 def crop_center_square(frame):
