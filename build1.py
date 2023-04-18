@@ -20,6 +20,8 @@ with open(args.config, 'r') as f:
     config = yaml.safe_load(f)
 
 print(config)
+print(config['video_path'])
+print(config['input_shape'])
 def crop_center_square(frame):
   y, x = frame.shape[0:2]
   min_dim = min(y, x)
