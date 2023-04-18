@@ -48,7 +48,7 @@ def load_video(path, max_frames= config['fps']*config['length'], resize=(320,40)
   return np.array(frames) / 255.0
 
 #loading video as array from "video_path"
-video = load_video(config['video_path'])
+video = load_video(path = config['video_path'])
 
 #checking array shape [n_frames, width, height, RGB]
 print(video.shape)
@@ -62,6 +62,7 @@ sfa_layers = sksfa.HSFA(n_components=config['components'],
 
 
 sfa_layers.fit(video)
+print(video[0].shape)
 extracted_features = sfa_layers.transform(video[4])
 print(extracted_features)
 
