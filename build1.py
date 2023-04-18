@@ -62,7 +62,6 @@ sfa_layers = sksfa.HSFA(n_components=config['components'],
 
 
 sfa_layers.fit(video)
-print(video[0].shape)
 extracted_features = sfa_layers.transform(video[4])
 print(extracted_features)
 
