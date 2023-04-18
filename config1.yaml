@@ -1,6 +1,6 @@
 fps : 30
 length: 24
-video_path: "$HOME/projects/spatial-model/video1.mp4"
+video_path: "video1.mp4"
 input_shape: [320,40,3]
 noise: 0.05
 final_degree: 2
