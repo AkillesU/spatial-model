@@ -10,11 +10,14 @@ import ssl
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--config', type=str, required=True, help='Path to config file')
+args = parser.parse_args()
 
-#Loading Config file
-#with open("config.yaml") as f:
-#  config = yaml.safe_load(f)
+with open(args.config, 'r') as f:
+    config = yaml.safe_load(f)
 
 print(config)
 def crop_center_square(frame):
