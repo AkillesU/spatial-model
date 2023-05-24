@@ -19,6 +19,7 @@ args = parser.parse_args()
 with open(args.config, 'r') as f:
     config = yaml.safe_load(f)
 
+
 print(config)
 print(config['video_path'])
 print(config['input_shape'])
@@ -62,11 +63,15 @@ sfa_layers = sksfa.HSFA(n_components=config['components'],
                         final_degree= config['final_degree'],
                         layer_configurations=config['layerconfig'])
 
-
+sfa_layers.summary()
 sfa_layers.fit(video)
 print(video[0].shape)
-extracted_features = sfa_layers.transform(video[4])
-print(extracted_features)
+extracted_features = sfa_layers.transform(video)
 
+fig, ax = plt.subplots(2, sharex=True)
+cutoff = 60
+ax[0, 0].plot(output[:cutoff, 0])
+ax[1, 0].plot(output[:cutoff, 1])
 
-
+plt.tight_layout()
+fig.savefig('graph.png')
