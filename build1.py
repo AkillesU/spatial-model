@@ -62,16 +62,23 @@ sfa_layers = sksfa.HSFA(n_components=config['components'],
                         noise_std = config['noise'],
                         final_degree= config['final_degree'],
                         layer_configurations=config['layerconfig'])
-
+#Checking sfa layers
 sfa_layers.summary()
+
+#Training sfa layers (double check paper)
 sfa_layers.fit(video)
+#checking training file shape
 print(video[0].shape)
+
+#Extracting features with trained model
 extracted_features = sfa_layers.transform(video)
 
+#Creating plot
 fig, ax = plt.subplots(2, sharex=True)
 cutoff = 60
 ax[0, 0].plot(output[:cutoff, 0])
 ax[1, 0].plot(output[:cutoff, 1])
 
+#Saving plot to local dir
 plt.tight_layout()
 fig.savefig('graph.png')
